@@ -24,8 +24,10 @@ class StreamingStockQuoteServiceApplicationTests {
 				.uri("/quotes?size=20") //set size = 20
 				.accept(MediaType.APPLICATION_JSON)
 				.exchange()
-				.expectStatus().isOk()
-				.expectHeader().contentType(MediaType.APPLICATION_JSON)
+				.expectStatus()
+				.isOk()
+				.expectHeader()
+				.contentType(MediaType.APPLICATION_JSON)
 				.expectBodyList(Quote.class)
 				.hasSize(20)
 				.consumeWith(allQuotes -> {
